@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Иван Витт — сайт-визитка</title>
+
+  <style>
+    :root {
+      --bg: #f4f1ec;
+      --card: #ffffff;
+      --text: #222222;
+      --muted: #77736d;
+      --line: #ddd6cd;
+      --accent: #2f4050;
+      --soft: #ebe5dc;
+      --shadow: 0 24px 60px rgba(45, 45, 45, 0.08);
+      --radius: 28px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, #e7dfd3 0%, transparent 35%),
+        linear-gradient(180deg, #f7f4ef 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .logo {
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 50px;
+      padding: 70px 0;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      font-weight: 500;
+      max-width: 720px;
+    }
+
+    .hero p {
+      margin-top: 28px;
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .btn {
+      padding: 15px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      transition: 0.25s ease;
+      font-size: 15px;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .photo-placeholder {
+      height: 420px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(47,64,80,.16), rgba(255,255,255,.4)),
+        url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80");
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 22px;
+    }
+
+    .profile-card h2 {
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 28px;
+      border-top: 1px solid var(--line);
+      padding-top: 28px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: -0.06em;
+    }
+
+    .section-title p {
+      max-width: 420px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      min-height: 240px;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card h3 {
+      margin: 24px 0 14px;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .contact-item small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .contact-item strong {
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    footer {
+      padding: 42px 0;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 0;
+      }
+
+      .photo-placeholder {
+        height: 340px;
+      }
+
+      .section-title {
+        flex-direction: column;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contacts {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions,
+      .socials {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .card,
+      .profile-card,
+      .contact-item {
+        border-radius: 22px;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">Ivan Gaevoy</div>
+      <nav class="nav-links">
+        <a href="#about">Обо мне</a>
+        <a href="#projects">Направления</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero container" id="about">
+      <div>
+        <span class="hero-label">Предприниматель • технологии • деловой подход</span>
+        <h1>Иван Гаевой</h1>
+        <p>
+          Развиваю проекты в сфере услуг, доставки, грузоперевозок,
+          товаров из Китая и благотворительной деятельности.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="https://t.me/username" target="_blank">Написать в Telegram</a>
+          <a class="btn" href="tel:+79999999999">Позвонить</a>
+          <a class="btn" href="mailto:mail@example.com">Написать на почту</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="photo-placeholder"></div>
+        <h2>Личная визитка</h2>
+        <p>
+          Контакты, социальные сети и основные направления деятельности в одном месте.
+        </p>
+      </div>
+    </section>
+
+    <section class="container" id="projects">
+      <div class="section-title">
+        <h2>Направления</h2>
+        <p>
+          Основные проекты и сферы деятельности, по которым можно связаться
+          для сотрудничества, заказа услуг или уточнения информации.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <span>01</span>
+          <h3>Товары из Китая и доставка</h3>
+          <p>
+            Помощь с подбором, заказом и организацией доставки товаров из Китая.
+            Подходит для личных покупок и бизнес-задач.
+          </p>
+        </div>
+
+        <div class="card">
+          <span>02</span>
+          <h3>Грузоперевозки по Москве</h3>
+          <p>
+            Организация грузоперевозок, переездов, услуг грузчиков и сопутствующих задач
+            по Москве и области.
+          </p>
+        </div>
+
+        <div class="card">
+          <span>03</span>
+          <h3>Благотворительная деятельность</h3>
+          <p>
+            Личный приют и помощь животным. Поддержка, уход, содержание и развитие
+            благотворительного направления.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="contacts">
+      <div class="section-title">
+        <h2>Контакты</h2>
+        <p>
+          Для связи, предложений, заказов и сотрудничества используйте удобный способ ниже.
+        </p>
+      </div>
+
+      <div class="contacts">
+        <div class="contact-item">
+          <small>Телефон</small>
+          <strong><a href="tel:+79999999999">+7 999 999-99-99</a></strong>
+        </div>
+
+        <div class="contact-item">
+          <small>Почта</small>
+          <strong><a href="mailto:mail@example.com">mail@example.com</a></strong>
+        </div>
+
+        <div class="contact-item">
+          <small>Telegram</small>
+          <strong><a href="https://t.me/username" target="_blank">@username</a></strong>
+        </div>
+
+        <div class="contact-item">
+          <small>Instagram</small>
+          <strong><a href="https://instagram.com/username" target="_blank">@username</a></strong>
+        </div>
+
+        <div class="contact-item">
+          <small>YouTube</small>
+          <strong><a href="https://youtube.com/@username" target="_blank">@username</a></strong>
+        </div>
+
+        <div class="contact-item">
+          <small>ОГРНИП</small>
+          <strong>000000000000000</strong>
+        </div>
+
+        <div class="contact-item">
+          <small>Почтовый адрес</small>
+          <strong>Укажите ваш почтовый адрес</strong>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a class="btn primary" href="https://t.me/username" target="_blank">Telegram</a>
+        <a class="btn" href="https://instagram.com/username" target="_blank">Instagram</a>
+        <a class="btn" href="https://youtube.com/@username" target="_blank">YouTube</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Иван Гаевой. Все права защищены.
+    </div>
+  </footer>
+
+</body>
+</html>
