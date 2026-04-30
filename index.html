@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Иван Гаевой — сайт-визитка</title>
+  <title>Иван Витт — сайт-визитка</title>
 
   <style>
     :root {
@@ -13,7 +13,6 @@
       --muted: #77736d;
       --line: #ddd6cd;
       --accent: #2f4050;
-      --soft: #ebe5dc;
       --shadow: 0 24px 60px rgba(45, 45, 45, 0.08);
       --radius: 28px;
     }
@@ -55,6 +54,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
       font-size: 14px;
       color: var(--muted);
     }
@@ -63,6 +63,36 @@
       color: var(--text);
       font-weight: 600;
       letter-spacing: -0.03em;
+    }
+
+    .top-socials {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: fadeDown 0.8s ease forwards;
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(45, 45, 45, 0.06);
+      transition: 0.25s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-4px) scale(1.06);
+      box-shadow: var(--shadow);
+    }
+
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
     }
 
     .nav-links {
@@ -146,7 +176,7 @@
       border-radius: 24px;
       background:
         linear-gradient(135deg, rgba(47,64,80,.16), rgba(255,255,255,.4)),
-        url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80");
+        url("img/photo.jpg");
       background-size: cover;
       background-position: center;
       margin-bottom: 22px;
@@ -263,6 +293,31 @@
       border-top: 1px solid var(--line);
     }
 
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 860px) {
       .nav-links {
         display: none;
@@ -291,6 +346,19 @@
     }
 
     @media (max-width: 480px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .top-socials {
+        gap: 8px;
+      }
+
+      .social-icon {
+        width: 34px;
+        height: 34px;
+      }
+
       .hero-actions,
       .socials {
         flex-direction: column;
@@ -317,8 +385,35 @@
 <body>
 
   <header>
-    <div class="container nav">
-      <div class="logo">Заменить</div>
+    <div class="container nav">  
+
+      <div class="top-socials">
+        <a class="social-icon" href="https://t.me/i_witt" target="_blank" aria-label="Telegram">
+          <svg viewBox="0 0 240 240">
+            <circle cx="120" cy="120" r="120" fill="#2AABEE"/>
+            <path fill="#fff" d="M178.4 74.8 158.7 168c-1.5 6.6-5.4 8.2-10.9 5.1l-30.2-22.3-14.6 14c-1.6 1.6-3 3-6.1 3l2.2-30.7 55.9-50.5c2.4-2.2-.5-3.4-3.8-1.2l-69 43.4-29.7-9.3c-6.5-2-6.6-6.5 1.4-9.6l116.1-44.8c5.4-2 10.1 1.3 8.4 9.7z"/>
+          </svg>
+        </a>
+
+        <a class="social-icon" href="https://www.instagram.com/iv_witt?igsh=MTd5d3d3YjdpNGd6Ng==" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 448 448">
+            <defs>
+              <linearGradient id="ig" x1="0" x2="1" y1="1" y2="0">
+                <stop offset="0%" stop-color="#feda75"/>
+                <stop offset="30%" stop-color="#fa7e1e"/>
+                <stop offset="55%" stop-color="#d62976"/>
+                <stop offset="80%" stop-color="#962fbf"/>
+                <stop offset="100%" stop-color="#4f5bd5"/>
+              </linearGradient>
+            </defs>
+            <rect width="448" height="448" rx="100" fill="url(#ig)"/>
+            <path fill="#fff" d="M224 145.5A78.5 78.5 0 1 0 224 302.5 78.5 78.5 0 0 0 224 145.5zm0 129.2A50.7 50.7 0 1 1 224 173.3a50.7 50.7 0 0 1 0 101.4z"/>
+            <circle cx="315.5" cy="132.5" r="18.3" fill="#fff"/>
+            <path fill="#fff" d="M298.4 70H149.6C105.7 70 70 105.7 70 149.6v148.8c0 43.9 35.7 79.6 79.6 79.6h148.8c43.9 0 79.6-35.7 79.6-79.6V149.6C378 105.7 342.3 70 298.4 70zm51.9 228.4c0 28.7-23.2 51.9-51.9 51.9H149.6c-28.7 0-51.9-23.2-51.9-51.9V149.6c0-28.7 23.2-51.9 51.9-51.9h148.8c28.7 0 51.9 23.2 51.9 51.9v148.8z"/>
+          </svg>
+        </a>
+      </div>
+
       <nav class="nav-links">
         <a href="#about">Обо мне</a>
         <a href="#projects">Направления</a>
@@ -329,7 +424,7 @@
 
   <main>
 
-    <section class="hero container" id="about">
+    <section class="hero container fade-in" id="about">
       <div>
         <span class="hero-label">Предприниматель • Зоозащитник • ДОПИСАТЬ</span>
         <h1>Иван Витт</h1>
@@ -338,9 +433,9 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="https://t.me/username" target="_blank">Написать в Telegram</a>
-          <a class="btn" href="tel:+79999999999">Позвонить</a>
-          <a class="btn" href="mailto:mail@example.com">Написать на почту</a>
+          <a class="btn primary" href="https://t.me/i_witt" target="_blank">Написать в Telegram</a>
+          <a class="btn" href="tel:+79996696600">Позвонить</a>
+          <a class="btn" href="mailto:svc.witt@gmail.com">Написать на почту</a>
         </div>
       </div>
 
@@ -403,44 +498,28 @@
       <div class="contacts">
         <div class="contact-item">
           <small>Телефон</small>
-          <strong><a href="tel:+79999999999">+7 999 999-99-99</a></strong>
+          <strong><a href="tel:+79996696600">+7(999)669-66-00</a></strong>
         </div>
 
         <div class="contact-item">
           <small>Почта</small>
-          <strong><a href="mailto:mail@example.com">mail@example.com</a></strong>
+          <strong><a href="mailto:svc.witt@gmail.com">svc.witt@gmail.com</a></strong>
         </div>
 
         <div class="contact-item">
           <small>Telegram</small>
-          <strong><a href="https://t.me/username" target="_blank">@username</a></strong>
+          <strong><a href="https://t.me/i_witt" target="_blank">@i_witt</a></strong>
         </div>
 
         <div class="contact-item">
           <small>Instagram</small>
-          <strong><a href="https://instagram.com/username" target="_blank">@username</a></strong>
-        </div>
-
-        <div class="contact-item">
-          <small>YouTube</small>
-          <strong><a href="https://youtube.com/@username" target="_blank">@username</a></strong>
-        </div>
-
-        <div class="contact-item">
-          <small>ОГРНИП</small>
-          <strong>000000000000000</strong>
-        </div>
-
-        <div class="contact-item">
-          <small>Почтовый адрес</small>
-          <strong>Укажите ваш почтовый адрес</strong>
+          <strong><a href="https://www.instagram.com/iv_witt?igsh=MTd5d3d3YjdpNGd6Ng==" target="_blank">@iv_witt</a></strong>
         </div>
       </div>
 
       <div class="socials">
         <a class="btn primary" href="https://t.me/i_witt" target="_blank">Telegram</a>
         <a class="btn" href="https://www.instagram.com/iv_witt?igsh=MTd5d3d3YjdpNGd6Ng==" target="_blank">Instagram</a>
-        <a class="btn" href="https://youtube.com/" target="_blank">YouTube</a>
       </div>
     </section>
 
@@ -448,7 +527,7 @@
 
   <footer>
     <div class="container">
-      © 2026 Иван Гаевой. Все права защищены.
+      © 2026 Иван Витт. Все права защищены.
     </div>
   </footer>
 
