@@ -226,8 +226,10 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 28px;
-      min-height: 240px;
+      min-height: 280px;
       transition: 0.25s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
@@ -250,6 +252,12 @@
     .card p {
       color: var(--muted);
       font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .card .btn {
+      margin-top: auto;
+      align-self: flex-start;
     }
 
     .contacts {
@@ -391,6 +399,10 @@
         border-radius: 22px;
       }
 
+      .card .btn {
+        align-self: stretch;
+      }
+
       section {
         padding: 48px 0;
       }
@@ -458,8 +470,8 @@
         <div class="photo-placeholder"></div>
         <h2>Открыт к общению</h2>
         <p>
-          « По рабочим вопросам и просто пообщаться. 
-Пишите - всегда на связи! »
+          « По рабочим вопросам и просто пообщаться.
+          Пишите - всегда на связи! »
         </p>
       </div>
     </section>
@@ -481,6 +493,7 @@
             Помощь с подбором, заказом и организацией доставки товаров из Китая.
             Подходит для личных покупок и бизнес-задач.
           </p>
+          <a href="#" class="btn">Перейти</a>
         </div>
 
         <div class="card">
@@ -490,6 +503,7 @@
             Организация грузоперевозок, переездов, услуг грузчиков и сопутствующих задач
             по Москве и области.
           </p>
+          <a href="#" class="btn">Перейти</a>
         </div>
 
         <div class="card">
@@ -497,8 +511,9 @@
           <h3>Благотворительная деятельность</h3>
           <p>
             Помощь животным и поддержка приютов.
-Развитие благотворительного сообщества в Москве.
+            Развитие благотворительного сообщества в Москве.
           </p>
+          <a href="#" class="btn">Перейти</a>
         </div>
       </div>
     </section>
@@ -523,13 +538,13 @@
         </div>
 
         <div class="contact-item">
-          <small>Telegram</small>
-          <strong><a href="https://t.me/i_witt" target="_blank">@i_witt</a></strong>
+          <small>ОГРНИП</small>
+          <strong>325310000102318</a></strong>
         </div>
 
         <div class="contact-item">
-          <small>Instagram</small>
-          <strong><a href="https://www.instagram.com/iv_witt?igsh=MTd5d3d3YjdpNGd6Ng==" target="_blank">@iv_witt</a></strong>
+          <small>ИНН</small>
+          <strong>312007264402</strong>
         </div>
       </div>
 
