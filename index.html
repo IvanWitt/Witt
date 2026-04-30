@@ -47,7 +47,7 @@
     }
 
     header {
-      padding: 28px 0;
+      padding: 28px 0 10px;
     }
 
     .nav {
@@ -103,7 +103,7 @@
       grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
       gap: 50px;
-      padding: 70px 0;
+      padding: 35px 0 70px;
     }
 
     .hero-label {
@@ -326,7 +326,7 @@
 
       .hero {
         grid-template-columns: 1fr;
-        padding: 40px 0;
+        padding: 20px 0 40px;
       }
 
       .photo-placeholder {
@@ -347,6 +347,10 @@
     }
 
     @media (max-width: 480px) {
+      header {
+        padding: 22px 0 6px;
+      }
+
       .nav {
         justify-content: center;
         align-items: center;
@@ -365,6 +369,10 @@
       .social-icon img {
         width: 28px;
         height: 28px;
+      }
+
+      .hero {
+        padding: 14px 0 38px;
       }
 
       .hero-actions,
